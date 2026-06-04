@@ -1,7 +1,9 @@
 // src/services/api.js - Complete implementation with JWT authentication
 import axios from 'axios';
 
-const API_URL = 'aits-backend-production.up.railway.app/api';
+//const API_URL = 'aits-backend-production.up.railway.app/api';
+
+const API_URL = 'http://127.0.0.1:8000/api';
 
 // Create main API instance
 const api = axios.create({
