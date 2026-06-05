@@ -95,13 +95,8 @@ class RegisterSerializer(serializers.ModelSerializer):
         if user.role == 'student' and student_profile_data:
             StudentProfile.objects.create(user=user, **student_profile_data)
         elif user.role == 'lecturer' and lecturer_profile_data:
-            # For lecturer, we need to handle the department
-            department_name = lecturer_profile_data.pop('department', None)
-            if department_name:
-                department = Department.objects.get(name=department_name)
-                LecturerProfile.objects.create(user=user, department=department, **lecturer_profile_data)
-            else:
-                LecturerProfile.objects.create(user=user, **lecturer_profile_data)
+            LecturerProfile.objects.create(user=user, **lecturer_profile_data) 
+            
         elif user.role == 'registrar' and registrar_profile_data:
             RegistrarProfile.objects.create(user=user, **registrar_profile_data)
             
