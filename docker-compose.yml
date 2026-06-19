@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+
+  database:
+    image: postgres:15
+    container_name: database
+    environment:
+      POSTGRES_DB: aits_db
+      POSTGRES_USER: aits_user
+      POSTGRES_PASSWORD: aits_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    container_name: backend
+    environment:
+      - DEBUG=0
+      - DB_HOST=database
+      - DB_NAME=aits_db
+      - DB_USER=aits_user
+      - DB_PASSWORD=aits_password
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+
+  frontend:
+    build: ./aits-frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

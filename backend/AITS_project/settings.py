@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-yto=31kte-xiyu4ilo45v+zcd^d8dpi%)lgi_&xq@+h3wqx9-s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -100,26 +100,26 @@ WSGI_APPLICATION = 'AITS_project.wsgi.application'
 #}
 
 
+#DATABASES = {
+   # 'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+     #   'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+
+#}
+
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'aits_db',
+        'USER': 'aits_user',
+        'PASSWORD': 'aits_password',
+        'HOST': 'apt130.apt.emulab.net',
+        'PORT': '5432'
     }
-
 }
-
-
-
-#DATABASES = {
-    #'default': {
-       # 'ENGINE': 'django.db.backends.postgresql',
-       # 'NAME': 'railway',
-       # 'USER':'postgres',
-       # 'PASSWORD':'wPSswYHgVVdqERgcpLDaWhKSODPYrvxc',
-       # 'HOST':'postgres.railway.internal',
-       # 'PORT':'5432'
-   # }
-#}
 #try:
     #import psycopg2
     #conn = psycopg2.connect(
