@@ -37,7 +37,7 @@ const Profile = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:8000/api/student/profile/', {
+        const response = await axios.get('http://apt131.apt.emulab.net/api/student/profile/', {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

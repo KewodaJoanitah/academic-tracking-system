@@ -35,7 +35,7 @@ const fetchStudentData = async () => {
   }
   
   try {
-    const response = await axios.get('http://localhost:8000/api/student/profile/', {
+    const response = await axios.get('http://apt131.apt.emulab.net/api/student/profile/', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -71,7 +71,7 @@ const fetchIssues = async () => {
   }
   
   try {
-    const response = await axios.get('http://localhost:8000/api/my-issues/', {
+    const response = await axios.get('http://apt131.apt.emulab.net/api/my-issues/', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
